@@ -1,89 +1,92 @@
-# Definize-AI
-Definize is an AI-powered, intelligent vocabulary companion, delivered as a browser extension.
-✅ Absolutely — here is a **professionally written, detailed, and well-organized README.md** for your project:
-It integrates all the **unique, differentiating features** we discussed, and positions your project as a premium, cutting-edge tool.
+# Definize
+
+**Definize** is a next-generation, AI-powered vocabulary assistant designed to help readers, researchers, and learners not only understand unfamiliar words but also retain and master them over time.
+
+It combines state-of-the-art language models, intelligent contextualization, and personalized learning tools into a seamless browser-based experience.
+
+> Select a word. Understand its meaning in context. Save it. Master it.
+
+
+## Features
+
+* **Context-Aware Definitions**
+  Powered by AI, Definize delivers definitions that adapt to the context and domain of the text being read, avoiding generic or irrelevant explanations.
+
+* **Personal Vocabulary Bank**
+  Every word looked up is saved to a secure, personal word bank for later review.
+
+* **Learning and Retention Tools**
+  Includes flashcards, spaced repetition quizzes, and gamified progress tracking to reinforce learning and retention.
+
+* **Domain-Specific Modes**
+  Tailor definitions for specific domains such as Academic, Legal, Medical, and Literary, ensuring relevance and precision.
+
+* **Simplified Explanations**
+  Optional "Explain Like I’m Five" mode for simplified explanations, ideal for non-native speakers and early learners.
+
+* **Pronunciation Support**
+  Provides correct pronunciation in multiple accents, with the option to practice and receive feedback on recorded pronunciation.
+
+* **Vocabulary Analytics**
+  Visual dashboard to monitor vocabulary growth, identify weak areas, and track learning progress over time.
+
+* **Cross-Device Synchronization**
+  Word bank and progress are securely synchronized across all devices.
 
 ---
 
-It goes far beyond simply “looking up” words:
-✅ Context-aware definitions.
-✅ Personalized learning & vocabulary building.
-✅ Domain-tuned explanations.
-✅ Simplified or advanced explanations on demand.
-✅ Pronunciation feedback, analytics, and cross-device sync.
+## Why Definize
 
-> *Definize helps you not just read — but truly understand and grow your vocabulary as you browse.*
+Traditional tools stop at providing dictionary definitions, leaving the burden of learning and remembering entirely on the user.
+Definize is designed to actively assist in understanding, memorization, and mastery, using adaptive AI and pedagogical principles, while respecting user context and intent.
 
 ---
 
-## 🚀 **Key Features**
+## Installation
 
-🌟 **Smart Definitions**
+### For End Users
 
-* AI-powered, context-aware definitions — not just dictionary lookups.
-* Understand domain-specific terms correctly (biology, legal, business, etc.).
+#### Chrome / Edge
 
-📘 **Personal Vocabulary Bank & Learning Tools**
+1. Download the latest release archive from the [Releases](https://github.com/your-org/definize/releases) page.
+2. Unzip the archive to a folder.
+3. Open `chrome://extensions/` in your browser.
+4. Enable *Developer mode*.
+5. Select *Load unpacked* and choose the unzipped folder.
+6. Pin the Definize icon to your browser toolbar for easy access.
 
-* Every word you look up is saved to your personal Word Bank.
-* Flashcards, quizzes, and spaced repetition to help you retain it.
-* Gamified streaks & progress tracking.
+#### Firefox
 
-🌏 **Domain Modes**
-
-* Choose a domain (e.g., Academic, Legal, Literature) for better definitions in context.
-
-✍️ **Contextual Examples**
-
-* See the word used in fresh, AI-generated sentences — even examples based on the very article you’re reading.
-
-🗣️ **Pronunciation Support**
-
-* Hear words pronounced (multiple accents).
-* Record your own pronunciation and get feedback.
-
-🧠 **Explain Like I’m Five (ELI5)**
-
-* For beginners or non-native speakers, toggle simpler explanations.
-
-📊 **Vocabulary Analytics**
-
-* See your learning trends, weak areas, and growth over time.
-
-🔗 **Cross-Device Sync**
-
-* Log in to keep your Word Bank and progress synced across devices.
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click *Load Temporary Add-on*.
+3. Select `manifest.json` from the unzipped folder.
 
 ---
 
-## 📊 **Project Roadmap**
+## Developer Setup
 
-| Phase      | Deliverables                              |
-| ---------- | ----------------------------------------- |
-| ✅ Phase 1  | MVP: Select text + popup with definitions |
-| 🔜 Phase 2 | Personal Word Bank                        |
-| 🔜 Phase 3 | Domain-specific context                   |
-| 🔜 Phase 4 | Learning tools: flashcards & quizzes      |
-| 🔜 Phase 5 | Analytics dashboard                       |
-| 🔜 Phase 6 | Cross-device sync                         |
+Clone the repository and install dependencies:
 
----
+```
+git clone https://github.com/your-org/definize.git
+cd definize
+npm install
+npm run build
+```
 
-## 🗂️ **Tech Stack**
+To start the backend API service:
 
-| Component                        | Technology                                          |
-| -------------------------------- | --------------------------------------------------- |
-| **Browser Extension**            | Manifest V3, WebExtensions                          |
-| **Frontend (popup & dashboard)** | React / Vanilla JS                                  |
-| **Backend AI Service**           | FastAPI / Flask + OpenAI GPT / Local LLM            |
-| **Storage**                      | IndexedDB (local), Firebase / Supabase (cloud sync) |
-| **Build Tools**                  | npm, Webpack                                        |
-| **Authentication (optional)**    | OAuth2 (Google, Github, etc.)                       |
-| **CI/CD**                        | GitHub Actions                                      |
+```
+cd server
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn app:app --reload
+```
 
 ---
 
-## 🧩 **Project Structure**
+## Project Structure
 
 ```
 definize/
@@ -99,7 +102,7 @@ definize/
 │   │   ├── dashboard.js
 │   │   └── dashboard.css
 ├── server/
-│   ├── app.py (backend API)
+│   ├── app.py
 │   └── requirements.txt
 ├── manifest.json
 ├── package.json
@@ -109,108 +112,89 @@ definize/
 
 ---
 
-## 🛠️ **Installation & Setup**
+## Architecture Overview
 
-### 🧑‍💻 Developer Setup
+* **Frontend**:
+  A browser extension built on the WebExtensions API (Manifest V3) with a React-based popup and dashboard.
+  Includes content scripts for intercepting user selections.
 
-#### 1️⃣ Clone the repo
+* **Backend**:
+  A RESTful API service (FastAPI or Flask) providing AI-based definitions, user account management, and synchronization.
+  Integrates with LLMs (e.g., GPT-based models) and cloud storage for user data.
 
-```bash
-git clone https://github.com/your-org/definize.git
-cd definize
+---
+
+## Roadmap
+
+| Phase                  | Description                                           |
+| ---------------------- | ----------------------------------------------------- |
+| Minimum Viable Product | Select word and show AI-powered contextual definition |
+| Word Bank              | Persist looked-up words in a user-specific list       |
+| Learning Tools         | Implement flashcards, spaced repetition quizzes       |
+| Domain Modes           | Enable domain-specific definition tuning              |
+| Analytics Dashboard    | Display vocabulary trends and progress                |
+| Cross-Device Sync      | Synchronize user data across devices                  |
+
+---
+
+## Testing
+
+Run frontend and backend tests:
+
+```
+npm test
+pytest
 ```
 
-#### 2️⃣ Install dependencies
-
-```bash
-npm install
-```
-
-#### 3️⃣ Build the extension
-
-```bash
-npm run build
-```
-
-#### 4️⃣ Run backend (optional: for AI service & sync)
-
-```bash
-cd server
-pip install -r requirements.txt
-uvicorn app:app --reload
-```
-
-#### 5️⃣ Load the extension
-
-* Chrome: `chrome://extensions/` → Enable Developer Mode → Load unpacked → select `dist/`
-* Firefox: `about:debugging` → Load Temporary Add-on
+Test coverage reports and CI pipeline configurations are provided in the repository.
 
 ---
 
-## 🧪 **Usage**
+## Contributing
 
-✅ Highlight a word on any web page.
-✅ Click the **Definize** 🔍 icon in your toolbar.
-✅ View:
+We welcome contributions under the guidelines outlined in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-* Context-aware definition
-* Example usage
-* Pronunciation
-* Save to Word Bank
-  ✅ Open dashboard anytime to review your words & progress.
+To contribute:
 
----
+* Fork this repository.
+* Create a new branch for your feature or bugfix.
+* Commit your changes with clear and descriptive messages.
+* Submit a pull request against the `main` branch.
 
-## 👨‍🎓 **Learning Tools**
-
-✅ Access your **Word Bank** in the dashboard.
-✅ Take quizzes & flashcards to reinforce learning.
-✅ See trends & analytics of your vocabulary growth.
+By contributing, you agree to abide by the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ---
 
-## 🧭 **Contributing**
+## License
 
-We welcome contributions!
-
-* Fork the repo
-* Create your feature branch (`git checkout -b feature/your-feature`)
-* Commit changes & push
-* Open a pull request
-
-Please follow [CONTRIBUTING.md](CONTRIBUTING.md) guidelines.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 🪪 **License**
+## Maintainers
 
-MIT License. See [LICENSE](LICENSE).
+* [Your Name](mailto:your.email@example.com) — Lead Developer
+* [Your Organization](https://your-organization.example.com)
 
----
-
-## 👨‍💻 **Authors & Maintainers**
-
-Developed by:
-
-* \[Your Name / Team]
-  Contact: \[[your-email@example.com](mailto:your-email@example.com)]
+For support or business inquiries, please contact [support@definize.com](mailto:support@definize.com).
 
 ---
 
-## 🌟 **Vision**
+## Vision
 
-> *Definize aims to democratize understanding. We help readers not just get through content, but actually grow with it — word by word.*
+Definize aspires to redefine how people interact with language while reading.
+It empowers readers to deepen their understanding, retain their learning, and expand their vocabulary, seamlessly integrated into their daily reading experience.
 
 ---
 
-### 📌 Next Suggestions:
+## Documentation and Additional Resources
 
-✅ Would you like me to also draft:
+* Product Requirements Document: `docs/PRD.md`
+* API Specification: `docs/API_SPEC.md`
+* Test Plan: `docs/TEST_PLAN.md`
+* Brand Guidelines and Assets: `docs/BRAND.md`
 
-* CONTRIBUTING.md
-* CODE\_OF\_CONDUCT.md
-* Sample API specification for backend
-* Sample issue & PR templates
+For further information, visit the [project website](https://definize.example.com) or the [GitHub repository](https://github.com/your-org/definize).
 
-Let me know — I can prepare those next!
-If you’d also like help drafting a **pitch deck** or product **one-pager**, feel free to ask.
+---
+
